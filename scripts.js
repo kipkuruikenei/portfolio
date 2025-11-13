@@ -37,7 +37,7 @@ const closeModalBtn = document.querySelector('.close-modal');
 
 downloadCV.addEventListener('click', () => {
     // Method 1: Direct download link (if file exists)
-    const cvUrl = 'assets/resume.pdf';
+    const cvUrl = 'assets/STACY-ATIENO-CV.pdf';
     
     // Create a temporary link for download
     const link = document.createElement('a');
@@ -140,3 +140,4 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 });
+
