@@ -38,8 +38,8 @@ const closeModalBtn = document.querySelector('.close-modal');
 downloadCV.addEventListener('click', () => {
     // Create a temporary link for download
     const link = document.createElement('a');
-    link.href = 'assets/resume.pdf'; // Path to your CV file
-    link.download = 'John_Doe_CV.pdf';
+     link.href = 'assets/STACY-ATIENO-CV.pdf'; // Path to your CV file
+    link.download = 'STACY-ATIENO-CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -159,4 +159,5 @@ const skillTags = document.querySelectorAll('.skill-tag');
 
 skillTags.forEach((tag, index) => {
     tag.style.animationDelay = `${index * 0.1}s`;
+
 });
