@@ -42,7 +42,7 @@ downloadCV.addEventListener('click', () => {
     // Create a temporary link for download
     const link = document.createElement('a');
     link.href = cvUrl;
-    link.download = 'Stacy_Atieno_CV.pdf'; // This will be the filename when downloaded
+    link.download = 'STACY-ATIENO-CV.pdf'; // This will be the filename when downloaded
     
     // Append to body, click, and remove
     document.body.appendChild(link);
@@ -140,4 +140,5 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 });
+
 
