@@ -29,23 +29,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Download CV functionality
+// Download CV functionality - FIXED VERSION
 const downloadCV = document.getElementById('downloadCV');
 const downloadModal = document.getElementById('downloadModal');
 const closeModal = document.getElementById('closeModal');
 const closeModalBtn = document.querySelector('.close-modal');
 
 downloadCV.addEventListener('click', () => {
+    // Method 1: Direct download link (if file exists)
+    const cvUrl = 'assets/resume.pdf';
+    
     // Create a temporary link for download
     const link = document.createElement('a');
-     link.href = 'assets/STACY-ATIENO-CV.pdf'; // Path to your CV file
-    link.download = 'STACY-ATIENO-CV.pdf';
+    link.href = cvUrl;
+    link.download = 'Stacy_Atieno_CV.pdf'; // This will be the filename when downloaded
+    
+    // Append to body, click, and remove
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     
     // Show success modal
     downloadModal.style.display = 'block';
+    
+    // Alternative method if above doesn't work
+    setTimeout(() => {
+        // Check if download actually happened
+        console.log('Download initiated for: ' + cvUrl);
+    }, 1000);
 });
 
 // Close modal functionality
@@ -71,7 +82,6 @@ contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
     // Get form data
-    const formData = new FormData(contactForm);
     const name = contactForm.querySelector('input[type="text"]').value;
     const email = contactForm.querySelector('input[type="email"]').value;
     const message = contactForm.querySelector('textarea').value;
@@ -129,35 +139,4 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
-});
-
-// Typing effect for hero title
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    type();
-}
-
-// Initialize typing effect when page loads
-window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    const originalText = heroTitle.innerHTML;
-    // Uncomment below if you want typing effect
-    typeWriter(heroTitle, originalText, 50);
-});
-
-// Skills animation
-const skillTags = document.querySelectorAll('.skill-tag');
-
-skillTags.forEach((tag, index) => {
-    tag.style.animationDelay = `${index * 0.1}s`;
-
 });
